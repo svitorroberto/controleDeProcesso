@@ -7,7 +7,7 @@
 <class>model.Usuario</class>
 <class>model.Tipo</class>
 <class>model.Departamento</class>
-<class>model.Processo</class>
+<class>model.Etapa</class>
 <properties>
    		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

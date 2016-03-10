@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="processo")
-public class Processo {
+@Table(name="etapa")
+public class Etapa {
 	
 	@Id
 	private int numero;
