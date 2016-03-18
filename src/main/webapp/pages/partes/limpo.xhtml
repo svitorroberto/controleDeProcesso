@@ -1,10 +1,37 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-    
-<!-- Navigation -->
+<h:head>
+	<title>Cadstro de Processos</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"
+		rel="stylesheet" />
+
+	<!-- MetisMenu CSS -->
+	<link href="../../bower_components/metisMenu/dist/metisMenu.min.css"
+		rel="stylesheet" />
+
+	<!-- Timeline CSS -->
+	<link href="../../dist/css/timeline.css" rel="stylesheet" />
+
+	<!-- Custom CSS -->
+	<link href="../../dist/css/sb-admin-3.css" rel="stylesheet" />
+
+	<!-- Morris Charts CSS -->
+	<link href="../../bower_components/morrisjs/morris.css" rel="stylesheet" />
+
+	<!-- Custom Fonts -->
+	<link href="../../bower_components/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css" />
+		
+</h:head>
+<h:body>
+	<!-- IMPORT BARRA  -->
+	<!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -227,7 +254,35 @@
             </ul>
 </nav>
 
-<!-- jQuery -->
+
+	
+	<!-- FORMULARIO  -->
+	<h1>Cadastrar Novo Processo</h1>
+	<h:form>
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:outputLabel for="date" value="Número do Processo: " />
+        	<p:inputMask id="date" value="#{managedBean.cadastraEtapa.etapa.numero}" mask="9999999999"/>
+        	<p:outputLabel for="date" value="Departamento Responsável: " />
+        	<p:selectOneMenu id="dep" value="" style="width:200px">
+            	<f:selectItem itemLabel="Departamentos" itemValue="" />
+            	<f:selectItem itemLabel="TI" itemValue="1" />
+            	<f:selectItem itemLabel="Jurídico" itemValue="2" />
+            	<f:selectItem itemLabel="RH" itemValue="3" />
+        	</p:selectOneMenu>
+        	<p:outputLabel for="date" value="Tipo de Processo: " />
+        	<p:selectOneMenu id="processo" value="" style="width:200px">
+            	<f:selectItem itemLabel="Tipos" itemValue="" />
+            	<f:selectItem itemLabel="Pagamento" itemValue="1" />
+            	<f:selectItem itemLabel="Multa" itemValue="2" />
+            	<f:selectItem itemLabel="Indenização" itemValue="3" />
+        	</p:selectOneMenu>
+
+			<p:commandButton value="Submit"/>
+		</h:panelGrid>
+    </h:form>
+	
+	<!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -243,5 +298,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+			
+		
 
-</ui:composition>
+</h:body>
+</html>

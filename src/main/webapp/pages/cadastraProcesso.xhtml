@@ -27,6 +27,7 @@
 	<!-- Custom Fonts -->
 	<link href="../bower_components/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css" />
+		
 </h:head>
 <h:body>
 	<!-- IMPORT BARRA  -->
@@ -38,17 +39,29 @@
 		<p:messages autoUpdate="true" />
 		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 			<p:outputLabel for="date" value="Número do Processo: " />
-        	<p:inputMask id="date" value="#{managedBean.cadastraProcesso.data}" mask="99/99/9999"/>
+        	<p:inputMask id="date" value="#{managedBean.cadastraProcesso.data}" mask="9999999999"/>
+        	<p:outputLabel for="date" value="Departamento Responsável: " />
+        	<p:selectOneMenu id="dep" value="" style="width:125px">
+            	<f:selectItem itemLabel="Select One" itemValue="" />
+            	<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            	<f:selectItem itemLabel="PS4" itemValue="PS4" />
+            	<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+        	</p:selectOneMenu>
+        	<p:outputLabel for="date" value="Tipo de Processo: " />
+        	<p:selectOneMenu id="processo" value="" style="width:125px">
+            	<f:selectItem itemLabel="Select One" itemValue="" />
+            	<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            	<f:selectItem itemLabel="PS4" itemValue="PS4" />
+            	<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+        	</p:selectOneMenu>
 
-			<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()"/>
+			<p:commandButton value="Submit"/>
 		</h:panelGrid>
+    </h:form>
+	
+	
 			
-		<p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade"> 
-        <p:panelGrid id="display" columns="2" columnClasses="label,value">
-            <h:outputText value="Date: " />
-            <h:outputText id="dateValue" value="#{managedBean.cadastraProcesso.data}" />
-            </p:panelGrid>
-    </p:dialog>
-	</h:form>
+		
+
 </h:body>
 </html>
