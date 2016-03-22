@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,10 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="etapa")
-public class Etapa {
+public class Etapa implements Serializable{
 	
 	@Id
-	private int numero;
+	private long numero;
 	private int ordem;
 	private int dpto_origem;
 	private int tipo;
@@ -21,10 +22,11 @@ public class Etapa {
 	private String descricao;
 	private int usuario_resp;
 	
-	public int getNumero() {
+	
+	public long getNumero() {
 		return numero;
 	}
-	public void setNumero(int numero) {
+	public void setNumero(long numero) {
 		this.numero = numero;
 	}
 	public int getOrdem() {

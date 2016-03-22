@@ -261,24 +261,26 @@
 	<h:form>
 		<p:messages autoUpdate="true" />
 		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-			<p:outputLabel for="date" value="Número do Processo: " />
-        	<p:inputMask id="date" value="#{managedBean.cadastraEtapa.etapa.numero}" mask="9999999999"/>
-        	<p:outputLabel for="date" value="Departamento Responsável: " />
-        	<p:selectOneMenu id="dep" value="" style="width:200px">
+			<p:outputLabel for="numero" value="Número do Processo: " />
+        	<p:inputMask id="numero" value="#{cadastraEtapa.etapa.numero}" mask="9999999999"/>
+        	<p:outputLabel for="dep" value="Departamento Responsável: " />
+        	<p:selectOneMenu id="dep" value="#{cadastraEtapa.etapa.dpto_origem}" style="width:200px">
             	<f:selectItem itemLabel="Departamentos" itemValue="" />
+            	<f:selectItems value="#{cadastraEtapa.pegarDepartamentos()}" var="dep" itemLabel="#{dep.nome}" itemValue="#{dep.id}"/>
             	<f:selectItem itemLabel="TI" itemValue="1" />
             	<f:selectItem itemLabel="Jurídico" itemValue="2" />
             	<f:selectItem itemLabel="RH" itemValue="3" />
         	</p:selectOneMenu>
-        	<p:outputLabel for="date" value="Tipo de Processo: " />
-        	<p:selectOneMenu id="processo" value="" style="width:200px">
+        	<p:outputLabel for="tipo" value="Tipo de Processo: " />
+        	<p:selectOneMenu id="tipo" value="#{cadastraEtapa.etapa.tipo}" style="width:200px">
             	<f:selectItem itemLabel="Tipos" itemValue="" />
             	<f:selectItem itemLabel="Pagamento" itemValue="1" />
             	<f:selectItem itemLabel="Multa" itemValue="2" />
             	<f:selectItem itemLabel="Indenização" itemValue="3" />
         	</p:selectOneMenu>
 
-			<p:commandButton value="Submit"/>
+			
+			<p:commandButton value="Cadastrar" actionListener="#{cadastraEtapa.criarEtapa}" ajax="false" />
 		</h:panelGrid>
     </h:form>
 	

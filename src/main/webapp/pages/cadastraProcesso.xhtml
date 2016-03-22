@@ -54,8 +54,10 @@
             	<f:selectItem itemLabel="PS4" itemValue="PS4" />
             	<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
         	</p:selectOneMenu>
-
-			<p:commandButton value="Submit"/>
+        	
+			<p:messages id="messages" showDetail="true" autoUpdate="true" />
+			<br/>
+			<p:commandButton value="Submit" ajax="false" url="limpo.jsf"/>
 		</h:panelGrid>
     </h:form>
 	
