@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    
+    <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+	<!-- FORMULARIO  -->
+	<h1>Cadastrar Novo Processo</h1>
+	</div>
+	<h:form>
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:outputLabel for="numero" value="Número do Processo: " />
+        	<p:inputMask id="numero" value="#{cadastraEtapa.etapa.numero}" mask="999999999999999" required="true" style="width: 165px;"/>
+        	<p:outputLabel for="dep" value="Departamento Responsável: " />
+        	<p:selectOneMenu id="dep" value="#{cadastraEtapa.etapa.dpto_origem}" style="width:200px">
+            	<f:selectItems value="#{cadastraEtapa.pegarDepartamentos()}" var="dep" itemLabel="#{dep.nome}" itemValue="#{dep.id}"/>
+        	</p:selectOneMenu>
+        	<p:outputLabel for="tipo" value="Tipo de Processo: " />
+        	<p:selectOneMenu id="tipo" value="#{cadastraEtapa.etapa.tipo}" style="width:200px">
+            	<f:selectItems value="#{cadastraEtapa.pegarTipos()}" var="tip" itemLabel="#{tip.nome}" itemValue="#{tip.id}"/>
+        	</p:selectOneMenu>
+
+			
+			<p:commandButton value="Cadastrar" actionListener="#{cadastraEtapa.criarEtapa}" ajax="false" />
+		</h:panelGrid>
+    </h:form>
+	</div>
+	<!-- /.row -->
+	</div>
+	<!-- /#page-wrapper -->
+	   
+    </ui:composition>

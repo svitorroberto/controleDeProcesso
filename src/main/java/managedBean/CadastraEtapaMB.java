@@ -11,8 +11,10 @@ import javax.faces.context.FacesContext;
 
 import dao.DepartamentoDaoImpl;
 import dao.EtapaDaoImpl;
+import dao.TipoDaoImpl;
 import model.Departamento;
 import model.Etapa;
+import model.Tipo;
 
 @ManagedBean(name="cadastraEtapa")
 @SessionScoped
@@ -25,6 +27,11 @@ public class CadastraEtapaMB implements Serializable{
 		DepartamentoDaoImpl d = new DepartamentoDaoImpl();
 		return d.listar();
 	}
+	public List<Tipo> pegarTipos(){
+		TipoDaoImpl t = new TipoDaoImpl();
+		return t.listar();
+	}
+	
 	
 	public String criarEtapa(){
 		Date data = new Date();

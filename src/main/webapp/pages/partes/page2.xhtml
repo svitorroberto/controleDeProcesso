@@ -1,10 +1,44 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     
-<!-- Navigation -->
+	<title>Cadstro de Processos</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"
+		rel="stylesheet" />
+
+	<!-- MetisMenu CSS -->
+	<link href="../../bower_components/metisMenu/dist/metisMenu.min.css"
+		rel="stylesheet" />
+
+	<!-- Timeline CSS -->
+	<link href="../../dist/css/timeline.css" rel="stylesheet" />
+
+	<!-- Custom CSS -->
+	<link href="../../dist/css/sb-admin-3.css" rel="stylesheet" />
+
+	<!-- Morris Charts CSS -->
+	<link href="../../bower_components/morrisjs/morris.css" rel="stylesheet" />
+
+	<!-- Custom Fonts -->
+	<link href="../../bower_components/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css" />
+		
+</h:head>
+<h:body>
+	<!-- IMPORT BARRA  -->
+	<!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -227,21 +261,53 @@
             </ul>
 </nav>
 
-<!-- jQuery -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+	<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+	<!-- FORMULARIO  -->
+	<h1>Cadastrar Novo Processo</h1>
+	</div>
+	<h:form>
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:outputLabel for="numero" value="Número do Processo: " />
+        	<p:inputMask id="numero" value="#{cadastraEtapa.etapa.numero}" mask="999999999999999" required="true" style="width: 165px;"/>
+        	<p:outputLabel for="dep" value="Departamento Responsável: " />
+        	<p:selectOneMenu id="dep" value="#{cadastraEtapa.etapa.dpto_origem}" style="width:200px">
+            	<f:selectItems value="#{cadastraEtapa.pegarDepartamentos()}" var="dep" itemLabel="#{dep.nome}" itemValue="#{dep.id}"/>
+        	</p:selectOneMenu>
+        	<p:outputLabel for="tipo" value="Tipo de Processo: " />
+        	<p:selectOneMenu id="tipo" value="#{cadastraEtapa.etapa.tipo}" style="width:200px">
+            	<f:selectItems value="#{cadastraEtapa.pegarTipos()}" var="tip" itemLabel="#{tip.nome}" itemValue="#{tip.id}"/>
+        	</p:selectOneMenu>
+
+			
+			<p:commandButton value="Cadastrar" actionListener="#{cadastraEtapa.criarEtapa}" ajax="false" />
+		</h:panelGrid>
+    </h:form>
+	</div>
+	<!-- /.row -->
+	</div>
+	<!-- /#page-wrapper -->
+	<!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="../bower_components/raphael/raphael-min.js"></script>
-    <script src="../bower_components/morrisjs/morris.min.js"></script>
-    <script src="../js/morris-data.js"></script>
+    <script src="../../bower_components/raphael/raphael-min.js"></script>
+    <script src="../../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../../js/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../../dist/js/sb-admin-2.js"></script>
+			
+		
 
-</ui:composition>
+</h:body>
+</html>

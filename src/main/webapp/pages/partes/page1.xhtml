@@ -5,6 +5,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+
+	<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    
 	<title>Cadstro de Processos</title>
 
 	<!-- Bootstrap Core CSS -->
@@ -255,51 +262,50 @@
 </nav>
 
 
-	
+	<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
 	<!-- FORMULARIO  -->
 	<h1>Cadastrar Novo Processo</h1>
+	</div>
 	<h:form>
 		<p:messages autoUpdate="true" />
 		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 			<p:outputLabel for="numero" value="Número do Processo: " />
-        	<p:inputMask id="numero" value="#{cadastraEtapa.etapa.numero}" mask="9999999999"/>
+        	<p:inputMask id="numero" value="#{cadastraEtapa.etapa.numero}" mask="999999999999999" required="true" style="width: 165px;"/>
         	<p:outputLabel for="dep" value="Departamento Responsável: " />
         	<p:selectOneMenu id="dep" value="#{cadastraEtapa.etapa.dpto_origem}" style="width:200px">
-            	<f:selectItem itemLabel="Departamentos" itemValue="" />
             	<f:selectItems value="#{cadastraEtapa.pegarDepartamentos()}" var="dep" itemLabel="#{dep.nome}" itemValue="#{dep.id}"/>
-            	<f:selectItem itemLabel="TI" itemValue="1" />
-            	<f:selectItem itemLabel="Jurídico" itemValue="2" />
-            	<f:selectItem itemLabel="RH" itemValue="3" />
         	</p:selectOneMenu>
         	<p:outputLabel for="tipo" value="Tipo de Processo: " />
         	<p:selectOneMenu id="tipo" value="#{cadastraEtapa.etapa.tipo}" style="width:200px">
-            	<f:selectItem itemLabel="Tipos" itemValue="" />
-            	<f:selectItem itemLabel="Pagamento" itemValue="1" />
-            	<f:selectItem itemLabel="Multa" itemValue="2" />
-            	<f:selectItem itemLabel="Indenização" itemValue="3" />
+            	<f:selectItems value="#{cadastraEtapa.pegarTipos()}" var="tip" itemLabel="#{tip.nome}" itemValue="#{tip.id}"/>
         	</p:selectOneMenu>
 
 			
 			<p:commandButton value="Cadastrar" actionListener="#{cadastraEtapa.criarEtapa}" ajax="false" />
 		</h:panelGrid>
     </h:form>
-	
+	</div>
+	<!-- /.row -->
+	</div>
+	<!-- /#page-wrapper -->
 	<!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="../bower_components/raphael/raphael-min.js"></script>
-    <script src="../bower_components/morrisjs/morris.min.js"></script>
-    <script src="../js/morris-data.js"></script>
+    <script src="../../bower_components/raphael/raphael-min.js"></script>
+    <script src="../../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../../js/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../../dist/js/sb-admin-2.js"></script>
 			
 		
 
