@@ -35,6 +35,10 @@ public class EtapaDaoImpl implements EtapaDao {
     public List<Etapa> listar() {
         return entityManager.createQuery("from Etapa").getResultList();
     }
+	public List<Etapa> listarEtapa(int ordem){
+		return entityManager.createQuery("SELECT c FROM Etapa WHERE c.ordem LIKE :ordem").setParameter("ordem", ordem).getResultList();
+	}
+	
 	public void inserir(Etapa etapa) {
         try {
             entityManager.getTransaction().begin();

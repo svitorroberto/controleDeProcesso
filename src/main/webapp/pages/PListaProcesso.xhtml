@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    
+<title>Controle de Processos</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet"/>
+
+    <!-- Timeline CSS -->
+    <link href="../dist/css/timeline.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet"/>
+
+    <!-- Morris Charts CSS -->
+    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+</h:head>
+<h:body>
+     
+        <ui:include src="partes/PBarraHorizontal.xhtml" />
+        <ui:include src="partes/lateral.xhtml" />
+        
+        <h:form class="tabela-listar">
+         <p:dataTable var="pro" value="#{pListarProcessoMB.listarEtapa()}">
+            <p:column headerText="Número" style="text-align:center">
+                <h:outputText value="#{pro.numero}" />
+            </p:column>
+            <p:column headerText="Departamento Responsável">
+                <h:outputText value="#{pro.dpto_origem}"/>
+            </p:column>
+            <p:column headerText="Tipo" style="text-align:center">
+                <h:outputText value="#{pro.tipo}"/>
+            </p:column>
+            <p:column headerText="Usuário Competente" style="width:250px">
+                <h:outputText value="#{pro.email}"/>
+            </p:column>
+            <p:column headerText="Data de Criação" style="text-align:center">
+                <h:outputText value="#{pro.data_entrada}">
+                	<f:convertDateTime pattern="yyyy/MM/dd" />
+                </h:outputText>1
+            </p:column>
+ 
+        </p:dataTable>
+         <center>
+		<p:commandButton value="Atualizar" id="nonAjax2" actionListener="#{pListarProcessoMB.listarEtapa()}" ajax="false" />
+		</center>
+        </h:form>
+    </h:body>
+    </html>
