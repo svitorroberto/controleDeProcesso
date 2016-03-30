@@ -23,4 +23,9 @@ public class PListarProcessoMB {
 		etapas = ed.listarEtapa(1);
 		return etapas;
 	}
+
+	public List<Etapa> getEtapas() {
+		return etapas;
+	}
+	
 }

@@ -38,7 +38,7 @@
         <ui:include src="partes/lateral.xhtml" />
         
         <h:form class="tabela-listar">
-         <p:dataTable var="pro" value="#{pListarProcessoMB.listarEtapa()}">
+         <p:dataTable var="pro" value="#{pListarProcessoMB.etapas}">
             <p:column headerText="Número" style="text-align:center">
                 <h:outputText value="#{pro.numero}" />
             </p:column>
