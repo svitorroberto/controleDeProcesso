@@ -37,6 +37,7 @@
         <ui:include src="partes/PBarraHorizontal.xhtml" />
         <ui:include src="partes/lateral.xhtml" />
         
+        <div id="page-wrapper">
         <h:form class="tabela-listar">
          <p:dataTable var="pro" value="#{pListarProcessoMB.etapas}">
             <p:column headerText="Número" style="text-align:center">
@@ -49,7 +50,7 @@
                 <h:outputText value="#{pro.tipo}"/>
             </p:column>
             <p:column headerText="Usuário Competente" style="width:250px">
-                <h:outputText value="#{pro.email}"/>
+                <h:outputText value="#{pro.dpto_origem}"/>
             </p:column>
             <p:column headerText="Data de Criação" style="text-align:center">
                 <h:outputText value="#{pro.data_entrada}">
@@ -62,5 +63,6 @@
 		<p:commandButton value="Atualizar" id="nonAjax2" actionListener="#{pListarProcessoMB.listarEtapa()}" ajax="false" />
 		</center>
         </h:form>
+        </div>
     </h:body>
     </html>
